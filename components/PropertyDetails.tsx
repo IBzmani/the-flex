@@ -92,7 +92,7 @@ const PropertyDetails: React.FC = () => {
             </div>
             <div className="ml-auto">
               <div className="flex items-center gap-1 text-primary dark:text-teal-400 font-semibold">
-                <i className="fa-solid fa-star"></i> 4.92 <span className="text-gray-400 font-normal underline decoration-gray-400 cursor-pointer">(128 reviews)</span>
+                <i className="fa-solid fa-star"></i> 4.92 <span className="text-gray-400 font-normal underline decoration-gray-400 cursor-pointer">({reviews.length} reviews)</span>
               </div>
             </div>
           </div>
@@ -189,7 +189,7 @@ const PropertyDetails: React.FC = () => {
                 )}
               </div>
               <button className="mt-6 w-full py-2 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                Show all 128 reviews
+                Show all {reviews.length} reviews
               </button>
             </section>
 
