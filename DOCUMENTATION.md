@@ -15,21 +15,33 @@ To run the project locally, ensuring both the React frontend and the Express bac
     - **Frontend**: Access at `http://localhost:3000`
     - **Backend API**: Running on `http://localhost:3001`
 
-## 2. Technology Stack
-- **Frontend**:
-    - **Framework**: React 18, Vite
-    - **Language**: TypeScript
-    - **Styling**: TailwindCSS
-    - **Icons**: Material Symbols Outlined, FontAwesome
-- **Backend**:
-    - **Runtime**: Node.js
-    - **Framework**: Express (handling API requests)
-- **State Management**: React Context API (`ReviewsContext`)
+### Environment Variables & Security
+Although this MVP uses mock data, security is a priority. I use `.env` files to manage configuration and ensure sensitive keys are never hardcoded.
+
+- **`.env.local`**: Created to store API credentials (even unused ones).
+    ```bash
+    VITE_HOSTAWAY_ACCOUNT_ID=61148
+    VITE_HOSTAWAY_API_KEY=f943...
+    ```
+- **Usage**: In a real implementation, these would be consumed by the backend server (not exposed to the client) to authenticate requests to the Hostaway API.
+
+## 2. Technology Stack & Strategic Rationale
+
+### Frontend
+- **React 18 & Vite**: Chosen for **speed and ecosystem**. React's component-based architecture ensures the dashboard is modular and easy to extend, while Vite provides near-instant HMR (Hot Module Replacement) for a rapid development cycle.
+- **TypeScript**: Implemented for **scalability and reliability**. Strict typing prevents entire classes of runtime errors, which is critical when handling complex nested data structures like reviews and analytics.
+- **TailwindCSS**: Selected for **rapid UI iteration**. The utility-first approach ensures design consistency (spacing, colors) without maintaining bloated CSS files, allowing me to replicate the premium Flex Living aesthetic quickly.
+
+### Backend
+- **Node.js & Express**: Chosen for **unified architecture**. Using JavaScript across the full stack reduces context switching and allows for sharing types/validation logic if needed. It also simplifies deployment into a single container.
+
+### State Management
+- **React Context API**: Used to create a **single source of truth** for review data. This ensures that when a manager filters reviews, the analytics charts update instantly in sync, providing a seamless "Command Center" experience without the overhead of Redux.
 
 ## 3. Key Design & Logic Decisions
 
 ### Architecture: Unified Server
-We adopted a "Unified" architecture to simplify development and future deployment.
+I adopted a "Unified" architecture to simplify development and future deployment.
 - **Single Entry Point**: The `dev:all` script manages the complete stack.
 - **Production Ready**: The Express server is structured to easily serve the React static build files in a production environment, requiring only a single deployment target (e.g., Render, Heroku).
 
@@ -76,3 +88,9 @@ Integration is **feasible** but requires a Google Cloud Project with the **Place
 
 ### Current Status
 Mock implementation focused on the Hostaway integration as the primary data source, per the project scope.
+
+## 6. Visuals
+**Public Property Page - Reviews Section**
+This screenshot demonstrates the "Review Display Page" implementation. It confirms that only reviews marked as "Published" by the manager are visible to guests, maintaining the provided Flex Living design aesthetic.
+
+![Property Reviews Section](./public/assets/property_reviews_section.png)
