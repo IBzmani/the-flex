@@ -1,3 +1,4 @@
+
 import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
@@ -12,6 +13,7 @@ import DropdownMenu from './DropdownMenu';
 const Dashboard: React.FC = () => {
     const navigate = useNavigate();
     const { reviews, filteredReviews, loading, filters, setFilter } = useReviews();
+    const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
     // Calculate dynamic stats based on filtered reviews
     const stats: KPIStats[] = useMemo(() => {
@@ -103,9 +105,30 @@ const Dashboard: React.FC = () => {
 
     return (
         <div className="flex h-screen w-full bg-background-light dark:bg-background-dark font-display">
-            <Sidebar onLogoClick={() => navigate('/property')} />
+            {/* Mobile Sidebar Overlay */}
+            {isSidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-black/50 z-40 md:hidden"
+                    onClick={() => setIsSidebarOpen(false)}
+                />
+            )}
+
+            <Sidebar
+                className={`fixed md:relative z-50 h-full ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}
+                onLogoClick={() => setIsSidebarOpen(false)}
+            />
+
             <main className="flex-1 flex flex-col h-full overflow-hidden relative">
-                <Header />
+                {/* Mobile Header with Menu Button */}
+                <div className="md:hidden p-4 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between bg-white dark:bg-surface-dark">
+                    <button onClick={() => setIsSidebarOpen(true)} className="p-2 -ml-2 text-gray-600 dark:text-gray-300">
+                        <span className="material-symbols-outlined">menu</span>
+                    </button>
+                    <span className="font-bold text-gray-900 dark:text-white">Dashboard</span>
+                    <div className="w-8"></div> {/* Spacer for alignment */}
+                </div>
+
+                <Header className="hidden md:flex" />
                 <div className="flex-1 overflow-y-auto p-4 md:p-8">
                     <div className="max-w-7xl mx-auto space-y-8 pb-10">
                         {/* Page Header */}
