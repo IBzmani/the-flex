@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { ReviewsProvider } from './context/ReviewsContext';
 
@@ -11,8 +12,10 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <ReviewsProvider>
-      <App />
-    </ReviewsProvider>
+    <BrowserRouter>
+      <ReviewsProvider>
+        <App />
+      </ReviewsProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

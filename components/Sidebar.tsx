@@ -1,16 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import LogoIcon from './LogoIcon';
 
-interface SidebarProps {
-  onLogoClick?: () => void;
-}
+const Sidebar: React.FC = () => {
+  const navigate = useNavigate();
 
-const Sidebar: React.FC<SidebarProps> = ({ onLogoClick }) => {
   return (
     <aside className="w-64 shrink-0 flex flex-col border-r border-slate-200 dark:border-slate-800 bg-surface-light dark:bg-surface-dark transition-colors duration-300">
       <div
         className="p-6 flex items-center gap-3 cursor-pointer"
-        onClick={onLogoClick}
+        onClick={() => navigate('/property')}
       >
         <div className="size-10 rounded-xl bg-primary flex items-center justify-center text-white shrink-0 shadow-lg shadow-blue-900/20">
           <LogoIcon className="w-6 h-6" />

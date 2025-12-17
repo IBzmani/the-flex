@@ -1,12 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useReviews } from '../context/ReviewsContext';
 import LogoIcon from './LogoIcon';
 
-interface PropertyDetailsProps {
-  onNavigateBack: () => void;
-}
-
-const PropertyDetails: React.FC<PropertyDetailsProps> = ({ onNavigateBack }) => {
+const PropertyDetails: React.FC = () => {
+  const navigate = useNavigate();
   const { reviews } = useReviews();
   return (
     <div className="font-body bg-background-cream dark:bg-background-dark text-gray-800 dark:text-gray-200 min-h-screen w-full absolute inset-0 z-50 overflow-y-auto">
@@ -16,7 +14,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ onNavigateBack }) => 
             <div className="flex items-center">
               <a
                 className="flex-shrink-0 flex items-center gap-2 cursor-pointer"
-                onClick={(e) => { e.preventDefault(); onNavigateBack(); }}
+                onClick={(e) => { e.preventDefault(); navigate('/'); }}
                 href="#"
               >
                 <LogoIcon className="text-primary w-8 h-8" />
