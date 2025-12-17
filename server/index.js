@@ -1,6 +1,9 @@
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
 import reviewsRouter from './routes/reviews.js';
+
+dotenv.config();
 
 const app = express();
 const PORT = 3001;
