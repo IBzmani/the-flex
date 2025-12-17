@@ -8,6 +8,7 @@ const PropertyDetails: React.FC = () => {
   const { reviews } = useReviews();
   const mainRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,14 +63,50 @@ const PropertyDetails: React.FC = () => {
                 $ USD
               </button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <div className="flex md:hidden items-center">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className={`p-2 rounded-md ${isScrolled ? 'text-white' : 'text-gray-600 dark:text-gray-300'}`}
+              >
+                <i className={`fa-solid ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-xl`}></i>
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-16 left-0 w-full bg-white dark:bg-card-dark border-b border-gray-100 dark:border-gray-700 shadow-lg py-4 px-4 flex flex-col space-y-4 animate-in slide-in-from-top-2">
+            <a className="text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary flex items-center gap-2" href="#">
+              <i className="fa-solid fa-user-tie w-6 text-center"></i> Landlords
+            </a>
+            <a className="text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary flex items-center gap-2" href="#">
+              <i className="fa-solid fa-circle-info w-6 text-center"></i> About Us
+            </a>
+            <a className="text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary flex items-center gap-2" href="#">
+              <i className="fa-solid fa-briefcase w-6 text-center"></i> Careers
+            </a>
+            <a className="text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary flex items-center gap-2" href="#">
+              <i className="fa-regular fa-envelope w-6 text-center"></i> Contact
+            </a>
+            <div className="border-t border-gray-100 dark:border-gray-700 pt-4 flex items-center justify-between">
+              <button className="text-sm font-medium text-gray-700 dark:text-gray-200 flex items-center gap-2">
+                <img alt="UK Flag" className="w-5 h-auto rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqLsBkQg_SsUqd4QluTTO4Rqp5K-ZA-6OJFPxCKO3gT-PSGk4Pght8YRjiiYJ07owWaUYVFFMcfmgCjqWlUx3s9StL0kTKEXLFYnFGI998BsXR3cSWKC346MdqF-oGBHeULz8hkok8FLlbO8ddGB_TmnH3ZeqqUmUPUG3HXmr0zAefWhPTFOzia2xeNsqCxjmET7DOQvWNMfb9LsQFOZVnlALVAR5omLVh8RqnCMH-JmOA49yXy8yKwy7S5VS72IAy2okDV3sFjWk" /> English
+              </button>
+              <button className="text-sm font-medium text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded px-3 py-1">
+                $ USD
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-3 h-[400px] md:h-[500px] rounded-lg overflow-hidden">
-            <div className="md:col-span-2 md:row-span-2 relative group cursor-pointer">
+          <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-1 md:grid-rows-2 gap-3 h-[300px] md:h-[500px] rounded-lg overflow-hidden relative">
+            <div className="md:col-span-2 md:row-span-2 relative group cursor-pointer h-full">
               <img
                 alt="Modern bright bedroom main view"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
@@ -79,21 +116,21 @@ const PropertyDetails: React.FC = () => {
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
             </div>
-            <div className="relative group cursor-pointer">
+            <div className="hidden md:block relative group cursor-pointer">
               <img alt="Apartment interior detail" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBudIArI_AhSbtwS1ckVSINXiQM-mftRO31-fS9Gnw2rYCe9Jsh1VdayEb47brkfX-EzgDXUhkL_gqshKqaU525GNb7DDhT4THgiPWrGSKH8l9cHN0c5mebLm3YpJ3DL19cDQC52bsAep4c39gA1D8RY_tr6_cOa2gfLEgGRH7YOOIMZzoQ2KwAgyCtMhu5tdqiYeVDdE3cTWsFSPSUK5_Vr5if_YryooLSylz7dRC33TeDFPZ-dpjwP5LxbRtZcJQvdk5XHt00fVs" />
             </div>
-            <div className="relative group cursor-pointer">
+            <div className="hidden md:block relative group cursor-pointer">
               <img alt="Kitchen amenities" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5T-JzyNzky96aD3nlh-fTuRT5a-jqRQDf2u7WPnJot5BMkj7khwZnJ1wjAxV8v92YU3PHQiOp9Wt2Gmxwkfg4PnnM5WDBq5V4OP4OJr5X_wOSWGpRSddN4Z51v8piBIXFl1HzjOwNKGckZlGeLk8etJjVLNKKZr0308b7wlF_WDVFkYYC7fjIpc3Ke29sE4tSIM-tPw9ABczoaSZ6ulPUilUdBVrqbISgxutcXMQdVis3wlfR_BwYGrMuOHesRjoR0scYcwQNqqA" />
             </div>
-            <div className="relative group cursor-pointer">
+            <div className="hidden md:block relative group cursor-pointer">
               <img alt="Bathroom view" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZwd_Dc75VCcdMh1ti6R2S1-tAHgQjVykh1n4gemDpPtcqpI_1QnSCgWzn5i4vwQrb9SM4FqqbijpeeRPMgT9GK1Ugf_M_HE_cqZQ9jUmf2Nohnx6W_OrooqwxGNDKaZ9WYJdyh9oBxG2u2czAr60DdCpZVgg3928Prae-SimdjRALw2f3FOnfO2I4qnIJg0zPuccWJiMTrC11YVWUZIjUFxPvuCM1OMSvIIe3mAvfPD-L_xCv7hZa20v_lKVxMIb6ysfVNvQTSuk" />
             </div>
-            <div className="relative group cursor-pointer">
+            <div className="hidden md:block relative group cursor-pointer">
               <img alt="Living room area" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy9-KeRBtkL-Ko0obr3TYxQfIPgNL45D12CCZxLNX22tBXQVF_sEipaOI7tcsFndxAzPaQ6PDv3Ob___E4R6LqduPb20q4tj9mBj8M2aA1jOkWAUuQk19Uayzi-3nbrmcSpkTqAuTZ7EaIpYaZrJqNyNugOPGnQOf7K1CuQX895b-WD_ThmIRRXWVcsthj2l6z2m8qKAw0fNjN--40YdJKjFj_bOtNUICO3rO8dTlXxEd9U92KRbs85nOuD4M1LlFhfTgxtDloDOg" />
-              <button className="absolute bottom-4 right-4 bg-white dark:bg-gray-800 px-3 py-1.5 rounded-md text-xs font-medium shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-                <i className="fa-solid fa-grip-dots mr-1"></i> View all photos
-              </button>
             </div>
+            <button className="absolute bottom-4 right-4 bg-white dark:bg-gray-800 px-3 py-1.5 rounded-md text-xs font-medium shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition z-10">
+              <i className="fa-solid fa-grip-dots mr-1"></i> View all photos
+            </button>
           </div>
         </div>
 
@@ -438,7 +475,18 @@ const PropertyDetails: React.FC = () => {
         </div>
       </footer>
 
-      <a className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center" href="#">
+      {/* Mobile Sticky Booking Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-card-dark border-t border-gray-200 dark:border-gray-700 p-4 md:hidden z-40 flex items-center justify-between shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <div>
+          <span className="block text-gray-500 dark:text-gray-400 text-xs">Starting from</span>
+          <span className="font-bold text-lg text-primary dark:text-white">$120 <span className="text-sm font-normal">/ night</span></span>
+        </div>
+        <button className="bg-primary text-white font-bold py-2 px-6 rounded-lg shadow hover:bg-[#162e2c] transition">
+          Check availability
+        </button>
+      </div>
+
+      <a className="fixed bottom-24 md:bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center" href="#">
         <i className="fa-brands fa-whatsapp text-3xl"></i>
       </a>
     </div>
