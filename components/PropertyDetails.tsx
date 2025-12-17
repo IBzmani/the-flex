@@ -70,20 +70,26 @@ const PropertyDetails: React.FC = () => {
         <div className="mb-8">
           <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-3 h-[400px] md:h-[500px] rounded-lg overflow-hidden">
             <div className="md:col-span-2 md:row-span-2 relative group cursor-pointer">
-              <img alt="Modern bright bedroom main view" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqgytZSxhbY4q84EBiw_7E3CXTVLb1tD9rAR-L-VojFgG7qtxDCp0qHIJgnQwuAY351byeqBUYqsj7EAtTlW5yU4aSB89KgwwgGF2xYX0UEi-KaPg-futRDanqirGFpUJqb1IT3UlvnACa8LjBYT5925c9b55n6pWCy1HLqBw2F_cjX1CXcbpqP3gOf_YIdjsrhmtcMLgpg0T3L8dq90HRuSqq2q2fnbO4BBjR45EQNK2EcUwnS-gZY1qPjEPuRNU97lDEJj77e4U" />
+              <img
+                alt="Modern bright bedroom main view"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqgytZSxhbY4q84EBiw_7E3CXTVLb1tD9rAR-L-VojFgG7qtxDCp0qHIJgnQwuAY351byeqBUYqsj7EAtTlW5yU4aSB89KgwwgGF2xYX0UEi-KaPg-futRDanqirGFpUJqb1IT3UlvnACa8LjBYT5925c9b55n6pWCy1HLqBw2F_cjX1CXcbpqP3gOf_YIdjsrhmtcMLgpg0T3L8dq90HRuSqq2q2fnbO4BBjR45EQNK2EcUwnS-gZY1qPjEPuRNU97lDEJj77e4U"
+                loading="eager"
+                {...{ fetchPriority: "high" } as any}
+              />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
             </div>
             <div className="relative group cursor-pointer">
-              <img alt="Apartment interior detail" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBudIArI_AhSbtwS1ckVSINXiQM-mftRO31-fS9Gnw2rYCe9Jsh1VdayEb47brkfX-EzgDXUhkL_gqshKqaU525GNb7DDhT4THgiPWrGSKH8l9cHN0c5mebLm3YpJ3DL19cDQC52bsAep4c39gA1D8RY_tr6_cOa2gfLEgGRH7YOOIMZzoQ2KwAgyCtMhu5tdqiYeVDdE3cTWsFSPSUK5_Vr5if_YryooLSylz7dRC33TeDFPZ-dpjwP5LxbRtZcJQvdk5XHt00fVs" />
+              <img alt="Apartment interior detail" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBudIArI_AhSbtwS1ckVSINXiQM-mftRO31-fS9Gnw2rYCe9Jsh1VdayEb47brkfX-EzgDXUhkL_gqshKqaU525GNb7DDhT4THgiPWrGSKH8l9cHN0c5mebLm3YpJ3DL19cDQC52bsAep4c39gA1D8RY_tr6_cOa2gfLEgGRH7YOOIMZzoQ2KwAgyCtMhu5tdqiYeVDdE3cTWsFSPSUK5_Vr5if_YryooLSylz7dRC33TeDFPZ-dpjwP5LxbRtZcJQvdk5XHt00fVs" />
             </div>
             <div className="relative group cursor-pointer">
-              <img alt="Kitchen amenities" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5T-JzyNzky96aD3nlh-fTuRT5a-jqRQDf2u7WPnJot5BMkj7khwZnJ1wjAxV8v92YU3PHQiOp9Wt2Gmxwkfg4PnnM5WDBq5V4OP4OJr5X_wOSWGpRSddN4Z51v8piBIXFl1HzjOwNKGckZlGeLk8etJjVLNKKZr0308b7wlF_WDVFkYYC7fjIpc3Ke29sE4tSIM-tPw9ABczoaSZ6ulPUilUdBVrqbISgxutcXMQdVis3wlfR_BwYGrMuOHesRjoR0scYcwQNqqA" />
+              <img alt="Kitchen amenities" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5T-JzyNzky96aD3nlh-fTuRT5a-jqRQDf2u7WPnJot5BMkj7khwZnJ1wjAxV8v92YU3PHQiOp9Wt2Gmxwkfg4PnnM5WDBq5V4OP4OJr5X_wOSWGpRSddN4Z51v8piBIXFl1HzjOwNKGckZlGeLk8etJjVLNKKZr0308b7wlF_WDVFkYYC7fjIpc3Ke29sE4tSIM-tPw9ABczoaSZ6ulPUilUdBVrqbISgxutcXMQdVis3wlfR_BwYGrMuOHesRjoR0scYcwQNqqA" />
             </div>
             <div className="relative group cursor-pointer">
-              <img alt="Bathroom view" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZwd_Dc75VCcdMh1ti6R2S1-tAHgQjVykh1n4gemDpPtcqpI_1QnSCgWzn5i4vwQrb9SM4FqqbijpeeRPMgT9GK1Ugf_M_HE_cqZQ9jUmf2Nohnx6W_OrooqwxGNDKaZ9WYJdyh9oBxG2u2czAr60DdCpZVgg3928Prae-SimdjRALw2f3FOnfO2I4qnIJg0zPuccWJiMTrC11YVWUZIjUFxPvuCM1OMSvIIe3mAvfPD-L_xCv7hZa20v_lKVxMIb6ysfVNvQTSuk" />
+              <img alt="Bathroom view" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZwd_Dc75VCcdMh1ti6R2S1-tAHgQjVykh1n4gemDpPtcqpI_1QnSCgWzn5i4vwQrb9SM4FqqbijpeeRPMgT9GK1Ugf_M_HE_cqZQ9jUmf2Nohnx6W_OrooqwxGNDKaZ9WYJdyh9oBxG2u2czAr60DdCpZVgg3928Prae-SimdjRALw2f3FOnfO2I4qnIJg0zPuccWJiMTrC11YVWUZIjUFxPvuCM1OMSvIIe3mAvfPD-L_xCv7hZa20v_lKVxMIb6ysfVNvQTSuk" />
             </div>
             <div className="relative group cursor-pointer">
-              <img alt="Living room area" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy9-KeRBtkL-Ko0obr3TYxQfIPgNL45D12CCZxLNX22tBXQVF_sEipaOI7tcsFndxAzPaQ6PDv3Ob___E4R6LqduPb20q4tj9mBj8M2aA1jOkWAUuQk19Uayzi-3nbrmcSpkTqAuTZ7EaIpYaZrJqNyNugOPGnQOf7K1CuQX895b-WD_ThmIRRXWVcsthj2l6z2m8qKAw0fNjN--40YdJKjFj_bOtNUICO3rO8dTlXxEd9U92KRbs85nOuD4M1LlFhfTgxtDloDOg" />
+              <img alt="Living room area" loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy9-KeRBtkL-Ko0obr3TYxQfIPgNL45D12CCZxLNX22tBXQVF_sEipaOI7tcsFndxAzPaQ6PDv3Ob___E4R6LqduPb20q4tj9mBj8M2aA1jOkWAUuQk19Uayzi-3nbrmcSpkTqAuTZ7EaIpYaZrJqNyNugOPGnQOf7K1CuQX895b-WD_ThmIRRXWVcsthj2l6z2m8qKAw0fNjN--40YdJKjFj_bOtNUICO3rO8dTlXxEd9U92KRbs85nOuD4M1LlFhfTgxtDloDOg" />
               <button className="absolute bottom-4 right-4 bg-white dark:bg-gray-800 px-3 py-1.5 rounded-md text-xs font-medium shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                 <i className="fa-solid fa-grip-dots mr-1"></i> View all photos
               </button>
