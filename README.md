@@ -19,7 +19,7 @@ A modern, responsive dashboard for managing properties, reviews, and analytics f
 
 ## Tech Stack
 
-- **Frontend**: React 18, Vite, TypeScript, Tailwind CSS
+- **Frontend**: React, Vite, TypeScript, Tailwind CSS
 - **Backend**: Node.js, Express
 - **State Management**: React Context API
 - **Charts**: Recharts

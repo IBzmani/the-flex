@@ -28,7 +28,7 @@ Although this MVP uses mock data, security is a priority. I use `.env` files to 
 ## 2. Technology Stack & Strategic Rationale
 
 ### Frontend
-- **React 18 & Vite**: Chosen for **speed and ecosystem**. React's component-based architecture ensures the dashboard is modular and easy to extend, while Vite provides near-instant HMR (Hot Module Replacement) for a rapid development cycle.
+- **React & Vite**: Chosen for **speed and ecosystem**. React's component-based architecture ensures the dashboard is modular and easy to extend, while Vite provides near-instant HMR (Hot Module Replacement) for a rapid development cycle.
 - **TypeScript**: Implemented for **scalability and reliability**. Strict typing prevents entire classes of runtime errors, which is critical when handling complex nested data structures like reviews and analytics.
 - **TailwindCSS**: Selected for **rapid UI iteration**. The utility-first approach ensures design consistency (spacing, colors) without maintaining bloated CSS files, allowing me to replicate the premium Flex Living aesthetic quickly.
 
