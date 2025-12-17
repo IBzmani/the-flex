@@ -84,7 +84,11 @@ Integration is **feasible** but requires a Google Cloud Project with the **Place
 2.  **Google Places API Call**:
     - Use Field Masking: `fields=reviews,rating,userRatingCount` to minimize data usage.
     - Endpoint: `https://places.googleapis.com/v1/places/{PLACE_ID}`
-3.  **Aggregator Alternative**: For simpler integration without API limits (default API returns only 5 reviews), consider third-party aggregators like Elfsight or EmbedSocial.
+3.  **Data Normalization Strategy**:
+    - Google returns a 1-5 integer rating.
+    - Mapping: Map Google's author_name to our schema's guestName and relative_time_description to date.
+4.  **API Constraints**: The standard API returns only the 5 most helpful reviews.
+    - Solution: For full history, we would need to implement a "Sync Job" (Cron) that stores reviews in a dedicated database (Postgres/MongoDB) rather than fetching live on every page load.
 
 ### Current Status
 Mock implementation focused on the Hostaway integration as the primary data source, per the project scope.
