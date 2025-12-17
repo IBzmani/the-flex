@@ -126,7 +126,7 @@ const PropertyDetails: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
           <div className="lg:col-span-2 space-y-8">
-            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow border border-gray-100 dark:border-gray-700">
+            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">About this property</h2>
               <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
                 <p className="mb-3">
@@ -138,7 +138,7 @@ const PropertyDetails: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow border border-gray-100 dark:border-gray-700">
+            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white">Amenities</h2>
                 <button className="text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition">View all amenities <i className="fa-solid fa-chevron-right text-xs ml-1"></i></button>
@@ -165,7 +165,7 @@ const PropertyDetails: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow border border-gray-100 dark:border-gray-700">
+            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                   Guest Reviews
@@ -274,7 +274,7 @@ const PropertyDetails: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow border border-gray-100 dark:border-gray-700 pb-8">
+            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 pb-8">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Location</h2>
               <div className="relative w-full h-80 rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 group">
                 <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')] opacity-20 bg-center bg-cover"></div>
