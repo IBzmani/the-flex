@@ -19,7 +19,7 @@ const distPath = new URL('../dist', import.meta.url).pathname;
 app.use(express.static(distPath));
 
 // Catch-all for client-side routing
-app.get('(.*)', (req, res) => {
+app.get(/^(.*)$/, (req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
 
