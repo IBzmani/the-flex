@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useReviews } from '../context/ReviewsContext';
 import LogoIcon from './LogoIcon';
@@ -6,9 +6,29 @@ import LogoIcon from './LogoIcon';
 const PropertyDetails: React.FC = () => {
   const navigate = useNavigate();
   const { reviews } = useReviews();
+  const mainRef = useRef<HTMLDivElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (mainRef.current) {
+        setIsScrolled(mainRef.current.scrollTop > 10);
+      }
+    };
+
+    const element = mainRef.current;
+    element?.addEventListener('scroll', handleScroll);
+    return () => element?.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navBgClass = isScrolled ? 'bg-[#284E4C] border-[#284E4C]' : 'bg-white dark:bg-card-dark border-gray-200 dark:border-gray-700';
+  const navTextClass = isScrolled ? 'text-white hover:text-gray-200' : 'text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white';
+  const logoColorClass = isScrolled ? 'text-white' : 'text-primary';
+  const logoTextClass = isScrolled ? 'text-white' : 'text-primary dark:text-white';
+
   return (
-    <div className="font-body bg-background-cream dark:bg-background-dark text-gray-800 dark:text-gray-200 min-h-screen w-full absolute inset-0 z-50 overflow-y-auto">
-      <nav className="bg-white dark:bg-card-dark border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 shadow-sm">
+    <div ref={mainRef} className="font-body bg-background-cream dark:bg-background-dark text-gray-800 dark:text-gray-200 min-h-screen w-full absolute inset-0 z-50 overflow-y-auto">
+      <nav className={`${navBgClass} border-b sticky top-0 z-50 shadow-sm transition-colors duration-300`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
@@ -17,28 +37,28 @@ const PropertyDetails: React.FC = () => {
                 onClick={(e) => { e.preventDefault(); navigate('/'); }}
                 href="#"
               >
-                <LogoIcon className="text-primary w-8 h-8" />
-                <span className="font-display font-bold text-xl text-primary dark:text-white tracking-tight">the flex.</span>
+                <LogoIcon className={`${logoColorClass} w-8 h-8 transition-colors duration-300`} />
+                <span className={`font-display font-bold text-xl ${logoTextClass} tracking-tight transition-colors duration-300`}>the flex.</span>
               </a>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white flex items-center gap-1" href="#">
+              <a className={`text-sm font-medium flex items-center gap-1 transition-colors duration-300 ${navTextClass}`} href="#">
                 <i className="fa-solid fa-user-tie text-xs"></i> Landlords <i className="fa-solid fa-chevron-down text-[10px]"></i>
               </a>
-              <a className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white flex items-center gap-1" href="#">
+              <a className={`text-sm font-medium flex items-center gap-1 transition-colors duration-300 ${navTextClass}`} href="#">
                 <i className="fa-solid fa-circle-info text-xs"></i> About Us
               </a>
-              <a className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white flex items-center gap-1" href="#">
+              <a className={`text-sm font-medium flex items-center gap-1 transition-colors duration-300 ${navTextClass}`} href="#">
                 <i className="fa-solid fa-briefcase text-xs"></i> Careers
               </a>
-              <a className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white flex items-center gap-1" href="#">
+              <a className={`text-sm font-medium flex items-center gap-1 transition-colors duration-300 ${navTextClass}`} href="#">
                 <i className="fa-regular fa-envelope text-xs"></i> Contact
               </a>
-              <div className="border-l border-gray-300 dark:border-gray-600 h-6 mx-2"></div>
-              <button className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 flex items-center gap-1">
+              <div className={`border-l h-6 mx-2 transition-colors duration-300 ${isScrolled ? 'border-white/20' : 'border-gray-300 dark:border-gray-600'}`}></div>
+              <button className={`text-sm font-medium flex items-center gap-1 transition-colors duration-300 ${navTextClass}`}>
                 <img alt="UK Flag" className="w-4 h-auto rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqLsBkQg_SsUqd4QluTTO4Rqp5K-ZA-6OJFPxCKO3gT-PSGk4Pght8YRjiiYJ07owWaUYVFFMcfmgCjqWlUx3s9StL0kTKEXLFYnFGI998BsXR3cSWKC346MdqF-oGBHeULz8hkok8FLlbO8ddGB_TmnH3ZeqqUmUPUG3HXmr0zAefWhPTFOzia2xeNsqCxjmET7DOQvWNMfb9LsQFOZVnlALVAR5omLVh8RqnCMH-JmOA49yXy8yKwy7S5VS72IAy2okDV3sFjWk" /> English
               </button>
-              <button className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400">
+              <button className={`text-sm font-medium transition-colors duration-300 ${navTextClass}`}>
                 $ USD
               </button>
             </div>
