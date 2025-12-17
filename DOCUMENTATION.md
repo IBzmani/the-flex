@@ -16,14 +16,14 @@ To run the project locally, ensuring both the React frontend and the Express bac
     - **Backend API**: Running on `http://localhost:3001`
 
 ### Environment Variables & Security
-Although this MVP uses mock data, security is a priority. I use `.env` files to manage configuration and ensure sensitive keys are never hardcoded.
+Although this MVP uses mock data, security is a priority. I use `.env` files to manage configuration.
 
-- **`.env.local`**: Created to store API credentials (even unused ones).
+- **`.env` (Server-Side)**: Stores sensitive credentials consumed only by the Express backend.
     ```bash
-    VITE_HOSTAWAY_ACCOUNT_ID=61148
-    VITE_HOSTAWAY_API_KEY=f943...
+    HOSTAWAY_ACCOUNT_ID=61148
+    HOSTAWAY_API_KEY=f943...
     ```
-- **Usage**: In a real implementation, these would be consumed by the backend server (not exposed to the client) to authenticate requests to the Hostaway API.
+- **Security Note**: By routing requests through the Express backend (`/api/reviews/hostaway`), these keys remain server-side and are never exposed to the client browser, preventing API credential leakage.
 
 ## 2. Technology Stack & Strategic Rationale
 
