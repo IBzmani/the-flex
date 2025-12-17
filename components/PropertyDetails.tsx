@@ -163,7 +163,7 @@ const PropertyDetails: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
           <div className="lg:col-span-2 space-y-8">
-            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
+            <section className="bg-white dark:bg-card-dark p-6 md:p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">About this property</h2>
               <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
                 <p className="mb-3">
@@ -175,12 +175,12 @@ const PropertyDetails: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
-              <div className="flex justify-between items-center mb-6">
+            <section className="bg-white dark:bg-card-dark p-6 md:p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0 mb-6">
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white">Amenities</h2>
-                <button className="text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition">View all amenities <i className="fa-solid fa-chevron-right text-xs ml-1"></i></button>
+                <button className="text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition w-full sm:w-auto text-center">View all amenities <i className="fa-solid fa-chevron-right text-xs ml-1"></i></button>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 p-2">
                   <span className="material-icons text-gray-400">tv</span> Cable TV
                 </div>
@@ -202,9 +202,9 @@ const PropertyDetails: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <section className="bg-white dark:bg-card-dark p-6 md:p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0 mb-6">
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2 flex-wrap">
                   Guest Reviews
                   <span className="text-xs font-normal bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 px-2 py-0.5 rounded-full border border-green-200 dark:border-green-800">Curated Highlights</span>
                 </h2>
@@ -256,7 +256,7 @@ const PropertyDetails: React.FC = () => {
               </button>
             </section>
 
-            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow border border-gray-100 dark:border-gray-700">
+            <section className="bg-white dark:bg-card-dark p-6 md:p-8 rounded-xl shadow border border-gray-100 dark:border-gray-700">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Stay Policies</h2>
               <div className="bg-alt-surface-light dark:bg-alt-surface-dark p-6 rounded-lg mb-4">
                 <div className="flex items-start gap-3 mb-4">
@@ -311,7 +311,7 @@ const PropertyDetails: React.FC = () => {
               </div>
             </section>
 
-            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 pb-8">
+            <section className="bg-white dark:bg-card-dark p-6 md:p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 pb-8">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Location</h2>
               <div className="relative w-full h-80 rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 group">
                 <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')] opacity-20 bg-center bg-cover"></div>
