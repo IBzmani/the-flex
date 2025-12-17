@@ -313,16 +313,23 @@ const PropertyDetails: React.FC = () => {
 
             <section className="bg-white dark:bg-card-dark p-6 md:p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 pb-8">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Location</h2>
-              <div className="relative w-full h-80 rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 group">
-                <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')] opacity-20 bg-center bg-cover"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-primary text-white px-4 py-2 rounded-full shadow-lg transform group-hover:-translate-y-2 transition-transform duration-300 flex items-center gap-2">
-                    <i className="fa-solid fa-location-dot"></i> Morden, London
-                  </div>
-                </div>
-                <div className="absolute bottom-4 left-4 bg-white dark:bg-gray-800 p-2 rounded shadow text-xs">
-                  <img alt="Google" className="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVhqBceWfFtnje4luA6PK03EjnHR2SYaAVHA17n2zpmytId0Rl9gUvkqdsYQb4-LDl7ShpxYkH4tc1SFJ92XsdPpTdu1ICP_oTIBDof0kMoZUNpDPkODuciRWVwGH6Swfi1Lle1o4U4dnr_4JOpKHn-DOs7nDtfBUQtSw-k0eVwCkegoKOq4-gV6aoZXH4fb6dD93rNyn2egu73LdkP4I-zpPrXyMIQDRXnguFYa8DDvMKbQoZSy3QGqrqMJj5RSwFEaANVBJu-G8" />
-                </div>
+              <div className="relative w-full h-80 rounded-xl overflow-hidden shadow-sm border border-gray-200 dark:border-gray-600">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  id="gmap_canvas"
+                  src="https://maps.google.com/maps?q=29%20Shoreditch%20High%20St%2C%20London&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  frameBorder="0"
+                  scrolling="no"
+                  marginHeight={0}
+                  marginWidth={0}
+                  className="w-full h-full"
+                  title="Property Location"
+                ></iframe>
+              </div>
+              <div className="mt-4 flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
+                <p><i className="fa-solid fa-location-dot mr-2 text-primary"></i> 29 Shoreditch High St, London E1 6PN, United Kingdom</p>
+                <a href="https://maps.google.com/maps?q=29%20Shoreditch%20High%20St%2C%20London" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Open in Google Maps</a>
               </div>
               <a className="inline-block mt-4 text-sm underline text-gray-600 dark:text-gray-400 hover:text-primary" href="#">Browse more short term flats in London</a>
             </section>
