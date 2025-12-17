@@ -1,5 +1,6 @@
 import React from 'react';
 import { useReviews } from '../context/ReviewsContext';
+import LogoIcon from './LogoIcon';
 
 interface PropertyDetailsProps {
   onNavigateBack: () => void;
@@ -18,7 +19,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ onNavigateBack }) => 
                 onClick={(e) => { e.preventDefault(); onNavigateBack(); }}
                 href="#"
               >
-                <i className="fa-solid fa-house-chimney text-primary text-2xl"></i>
+                <LogoIcon className="text-primary w-8 h-8" />
                 <span className="font-display font-bold text-xl text-primary dark:text-white tracking-tight">the flex.</span>
               </a>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import LogoIcon from './LogoIcon';
 
 interface SidebarProps {
   onLogoClick?: () => void;
@@ -7,12 +8,12 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ onLogoClick }) => {
   return (
     <aside className="w-64 shrink-0 flex flex-col border-r border-slate-200 dark:border-slate-800 bg-surface-light dark:bg-surface-dark transition-colors duration-300">
-      <div 
+      <div
         className="p-6 flex items-center gap-3 cursor-pointer"
         onClick={onLogoClick}
       >
         <div className="size-10 rounded-xl bg-primary flex items-center justify-center text-white shrink-0 shadow-lg shadow-blue-900/20">
-          <span className="material-symbols-outlined">maps_home_work</span>
+          <LogoIcon className="w-6 h-6" />
         </div>
         <div className="flex flex-col">
           <h1 className="text-lg font-bold leading-tight tracking-tight">Flex Living</h1>
