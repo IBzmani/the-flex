@@ -7,22 +7,43 @@ import VolumeChart from './VolumeChart';
 import RecentReviews from './RecentReviews';
 import { useReviews } from '../context/ReviewsContext';
 import { KPIStats, DailyStat } from '../types';
+import DropdownMenu from './DropdownMenu';
 
 const Dashboard: React.FC = () => {
     const navigate = useNavigate();
-    const { reviews, loading, filters, setFilter } = useReviews();
+    const { reviews, filteredReviews, loading, filters, setFilter } = useReviews();
 
     // Calculate dynamic stats based on filtered reviews
     const stats: KPIStats[] = useMemo(() => {
-        if (loading || reviews.length === 0) return [
+        const sourceData = filteredReviews.length > 0 ? filteredReviews : (loading ? [] : []);
+
+        if (loading) return [
             { label: 'Average Rating', value: '-', change: '-', isPositive: true, period: 'vs last month', icon: 'star', colorClass: 'bg-blue-50 dark:bg-blue-900/20', iconColorClass: 'text-primary' },
             { label: 'Total Reviews', value: '-', change: '-', isPositive: true, period: 'vs last month', icon: 'reviews', colorClass: 'bg-purple-50 dark:bg-purple-900/20', iconColorClass: 'text-purple-600' },
             { label: 'NPS Score', value: '-', change: '-', isPositive: true, period: 'vs last month', icon: 'sentiment_satisfied', colorClass: 'bg-orange-50 dark:bg-orange-900/20', iconColorClass: 'text-orange-600' },
             { label: 'Response Rate', value: '-', change: '-', isPositive: true, period: 'vs last month', icon: 'reply', colorClass: 'bg-teal-50 dark:bg-teal-900/20', iconColorClass: 'text-teal-600' }
         ];
 
-        const avgRating = reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length;
-        const totalReviews = reviews.length;
+        // Handle case where filters result in no reviews
+        if (sourceData.length === 0 && !loading && reviews.length > 0) {
+            return [
+                { label: 'Average Rating', value: '0.0', change: '-', isPositive: true, period: 'vs last month', icon: 'star', colorClass: 'bg-blue-50 dark:bg-blue-900/20', iconColorClass: 'text-primary' },
+                { label: 'Total Reviews', value: '0', change: '-', isPositive: true, period: 'vs last month', icon: 'reviews', colorClass: 'bg-purple-50 dark:bg-purple-900/20', iconColorClass: 'text-purple-600' },
+                { label: 'NPS Score', value: '-', change: '-', isPositive: true, period: 'vs last month', icon: 'sentiment_satisfied', colorClass: 'bg-orange-50 dark:bg-orange-900/20', iconColorClass: 'text-orange-600' },
+                { label: 'Response Rate', value: '-', change: '-', isPositive: true, period: 'vs last month', icon: 'reply', colorClass: 'bg-teal-50 dark:bg-teal-900/20', iconColorClass: 'text-teal-600' }
+            ];
+        } else if (sourceData.length === 0) {
+            // Initial load or truly no data
+            return [
+                { label: 'Average Rating', value: '-', change: '-', isPositive: true, period: 'vs last month', icon: 'star', colorClass: 'bg-blue-50 dark:bg-blue-900/20', iconColorClass: 'text-primary' },
+                { label: 'Total Reviews', value: '-', change: '-', isPositive: true, period: 'vs last month', icon: 'reviews', colorClass: 'bg-purple-50 dark:bg-purple-900/20', iconColorClass: 'text-purple-600' },
+                { label: 'NPS Score', value: '-', change: '-', isPositive: true, period: 'vs last month', icon: 'sentiment_satisfied', colorClass: 'bg-orange-50 dark:bg-orange-900/20', iconColorClass: 'text-orange-600' },
+                { label: 'Response Rate', value: '-', change: '-', isPositive: true, period: 'vs last month', icon: 'reply', colorClass: 'bg-teal-50 dark:bg-teal-900/20', iconColorClass: 'text-teal-600' }
+            ];
+        }
+
+        const avgRating = sourceData.reduce((acc, r) => acc + r.rating, 0) / sourceData.length;
+        const totalReviews = sourceData.length;
         // Mocking NPS and Response Rate as they depend on deeper data not in hostaway mock
 
         return [
@@ -67,7 +88,7 @@ const Dashboard: React.FC = () => {
                 iconColorClass: 'text-teal-600'
             }
         ];
-    }, [reviews, loading]);
+    }, [filteredReviews, reviews, loading]);
 
     // Calculate Chart Data
     const chartData: DailyStat[] = useMemo(() => {
@@ -96,25 +117,33 @@ const Dashboard: React.FC = () => {
 
                             {/* Filters */}
                             <div className="flex flex-wrap gap-2">
-                                <FilterButton
+                                <DropdownMenu
                                     icon="calendar_today"
-                                    label={filters.period}
-                                    onClick={() => console.log('Date picker not implemented')}
+                                    label="Period"
+                                    value={filters.period}
+                                    options={['Last 30 Days', 'Last 3 Months', 'Last 6 Months', 'Year to Date']}
+                                    onSelect={(val) => console.log('Period selected:', val)}
                                 />
-                                <FilterButton
+                                <DropdownMenu
                                     icon="home_work"
-                                    label={`Property: ${filters.property}`}
-                                    onClick={() => setFilter('property', filters.property === 'All' ? 'Shoreditch' : 'All')}
+                                    label="Property"
+                                    value={filters.property}
+                                    options={['All', 'Shoreditch', 'City Center', 'Park']}
+                                    onSelect={(val) => setFilter('property', val)}
                                 />
-                                <FilterButton
+                                <DropdownMenu
                                     icon="filter_list"
-                                    label={`Channel: ${filters.channel}`}
-                                    onClick={() => setFilter('channel', filters.channel === 'All' ? 'Airbnb' : 'All')}
+                                    label="Channel"
+                                    value={filters.channel}
+                                    options={['All', 'Airbnb', 'Booking', 'Direct']}
+                                    onSelect={(val) => setFilter('channel', val)}
                                 />
-                                <FilterButton
+                                <DropdownMenu
                                     icon="star"
-                                    label={`Rating: ${filters.rating}`}
-                                    onClick={() => setFilter('rating', filters.rating === 'All' ? '5 Stars' : 'All')}
+                                    label="Rating"
+                                    value={filters.rating}
+                                    options={['All', '5 Stars', '4+ Stars', 'Under 4 Stars']}
+                                    onSelect={(val) => setFilter('rating', val)}
                                 />
                             </div>
                         </div>
@@ -134,21 +163,5 @@ const Dashboard: React.FC = () => {
     );
 };
 
-interface FilterButtonProps {
-    icon: string;
-    label: string;
-    onClick?: () => void;
-}
-
-const FilterButton: React.FC<FilterButtonProps> = ({ icon, label, onClick }) => (
-    <button
-        onClick={onClick}
-        className="h-9 px-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
-    >
-        <span className="material-symbols-outlined text-[18px]">{icon}</span>
-        {label}
-        <span className="material-symbols-outlined text-[18px] text-slate-400">expand_more</span>
-    </button>
-);
-
 export default Dashboard;
+
