@@ -1,0 +1,423 @@
+import React from 'react';
+import { useReviews } from '../context/ReviewsContext';
+
+interface PropertyDetailsProps {
+  onNavigateBack: () => void;
+}
+
+const PropertyDetails: React.FC<PropertyDetailsProps> = ({ onNavigateBack }) => {
+  const { reviews } = useReviews();
+  return (
+    <div className="font-body bg-background-cream dark:bg-background-dark text-gray-800 dark:text-gray-200 min-h-screen w-full absolute inset-0 z-50 overflow-y-auto">
+      <nav className="bg-white dark:bg-card-dark border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex items-center">
+              <a
+                className="flex-shrink-0 flex items-center gap-2 cursor-pointer"
+                onClick={(e) => { e.preventDefault(); onNavigateBack(); }}
+                href="#"
+              >
+                <i className="fa-solid fa-house-chimney text-primary text-2xl"></i>
+                <span className="font-display font-bold text-xl text-primary dark:text-white tracking-tight">the flex.</span>
+              </a>
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <a className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white flex items-center gap-1" href="#">
+                <i className="fa-solid fa-user-tie text-xs"></i> Landlords <i className="fa-solid fa-chevron-down text-[10px]"></i>
+              </a>
+              <a className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white flex items-center gap-1" href="#">
+                <i className="fa-solid fa-circle-info text-xs"></i> About Us
+              </a>
+              <a className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white flex items-center gap-1" href="#">
+                <i className="fa-solid fa-briefcase text-xs"></i> Careers
+              </a>
+              <a className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white flex items-center gap-1" href="#">
+                <i className="fa-regular fa-envelope text-xs"></i> Contact
+              </a>
+              <div className="border-l border-gray-300 dark:border-gray-600 h-6 mx-2"></div>
+              <button className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 flex items-center gap-1">
+                <img alt="UK Flag" className="w-4 h-auto rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqLsBkQg_SsUqd4QluTTO4Rqp5K-ZA-6OJFPxCKO3gT-PSGk4Pght8YRjiiYJ07owWaUYVFFMcfmgCjqWlUx3s9StL0kTKEXLFYnFGI998BsXR3cSWKC346MdqF-oGBHeULz8hkok8FLlbO8ddGB_TmnH3ZeqqUmUPUG3HXmr0zAefWhPTFOzia2xeNsqCxjmET7DOQvWNMfb9LsQFOZVnlALVAR5omLVh8RqnCMH-JmOA49yXy8yKwy7S5VS72IAy2okDV3sFjWk" /> English
+              </button>
+              <button className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400">
+                $ USD
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-3 h-[400px] md:h-[500px] rounded-lg overflow-hidden">
+            <div className="md:col-span-2 md:row-span-2 relative group cursor-pointer">
+              <img alt="Modern bright bedroom main view" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqgytZSxhbY4q84EBiw_7E3CXTVLb1tD9rAR-L-VojFgG7qtxDCp0qHIJgnQwuAY351byeqBUYqsj7EAtTlW5yU4aSB89KgwwgGF2xYX0UEi-KaPg-futRDanqirGFpUJqb1IT3UlvnACa8LjBYT5925c9b55n6pWCy1HLqBw2F_cjX1CXcbpqP3gOf_YIdjsrhmtcMLgpg0T3L8dq90HRuSqq2q2fnbO4BBjR45EQNK2EcUwnS-gZY1qPjEPuRNU97lDEJj77e4U" />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+            </div>
+            <div className="relative group cursor-pointer">
+              <img alt="Apartment interior detail" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBudIArI_AhSbtwS1ckVSINXiQM-mftRO31-fS9Gnw2rYCe9Jsh1VdayEb47brkfX-EzgDXUhkL_gqshKqaU525GNb7DDhT4THgiPWrGSKH8l9cHN0c5mebLm3YpJ3DL19cDQC52bsAep4c39gA1D8RY_tr6_cOa2gfLEgGRH7YOOIMZzoQ2KwAgyCtMhu5tdqiYeVDdE3cTWsFSPSUK5_Vr5if_YryooLSylz7dRC33TeDFPZ-dpjwP5LxbRtZcJQvdk5XHt00fVs" />
+            </div>
+            <div className="relative group cursor-pointer">
+              <img alt="Kitchen amenities" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5T-JzyNzky96aD3nlh-fTuRT5a-jqRQDf2u7WPnJot5BMkj7khwZnJ1wjAxV8v92YU3PHQiOp9Wt2Gmxwkfg4PnnM5WDBq5V4OP4OJr5X_wOSWGpRSddN4Z51v8piBIXFl1HzjOwNKGckZlGeLk8etJjVLNKKZr0308b7wlF_WDVFkYYC7fjIpc3Ke29sE4tSIM-tPw9ABczoaSZ6ulPUilUdBVrqbISgxutcXMQdVis3wlfR_BwYGrMuOHesRjoR0scYcwQNqqA" />
+            </div>
+            <div className="relative group cursor-pointer">
+              <img alt="Bathroom view" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZwd_Dc75VCcdMh1ti6R2S1-tAHgQjVykh1n4gemDpPtcqpI_1QnSCgWzn5i4vwQrb9SM4FqqbijpeeRPMgT9GK1Ugf_M_HE_cqZQ9jUmf2Nohnx6W_OrooqwxGNDKaZ9WYJdyh9oBxG2u2czAr60DdCpZVgg3928Prae-SimdjRALw2f3FOnfO2I4qnIJg0zPuccWJiMTrC11YVWUZIjUFxPvuCM1OMSvIIe3mAvfPD-L_xCv7hZa20v_lKVxMIb6ysfVNvQTSuk" />
+            </div>
+            <div className="relative group cursor-pointer">
+              <img alt="Living room area" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy9-KeRBtkL-Ko0obr3TYxQfIPgNL45D12CCZxLNX22tBXQVF_sEipaOI7tcsFndxAzPaQ6PDv3Ob___E4R6LqduPb20q4tj9mBj8M2aA1jOkWAUuQk19Uayzi-3nbrmcSpkTqAuTZ7EaIpYaZrJqNyNugOPGnQOf7K1CuQX895b-WD_ThmIRRXWVcsthj2l6z2m8qKAw0fNjN--40YdJKjFj_bOtNUICO3rO8dTlXxEd9U92KRbs85nOuD4M1LlFhfTgxtDloDOg" />
+              <button className="absolute bottom-4 right-4 bg-white dark:bg-gray-800 px-3 py-1.5 rounded-md text-xs font-medium shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                <i className="fa-solid fa-grip-dots mr-1"></i> View all photos
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="mb-8">
+          <h1 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">Lovely and Relaxing Room in the Heart of Morden</h1>
+          <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600 dark:text-gray-300">
+            <div className="flex items-center gap-2">
+              <i className="fa-solid fa-user-group text-lg text-gray-400"></i>
+              <span>2 Guests</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <i className="fa-solid fa-bed text-lg text-gray-400"></i>
+              <span>1 Bedroom</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <i className="fa-solid fa-bath text-lg text-gray-400"></i>
+              <span>1 Bathroom</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <i className="fa-solid fa-door-open text-lg text-gray-400"></i>
+              <span>1 Bed</span>
+            </div>
+            <div className="ml-auto">
+              <div className="flex items-center gap-1 text-primary dark:text-teal-400 font-semibold">
+                <i className="fa-solid fa-star"></i> 4.92 <span className="text-gray-400 font-normal underline decoration-gray-400 cursor-pointer">(128 reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+          <div className="lg:col-span-2 space-y-8">
+            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow border border-gray-100 dark:border-gray-700">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">About this property</h2>
+              <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
+                <p className="mb-3">
+                  Enjoy a comfortable stay in this bright and tidy private room located in Morden, South London. The room features a comfortable bed, storage space, and access to a shared kitchen and bathroom — perfect for solo travelers or couples.
+                </p>
+                <p>
+                  The property is situated in a quiet and safe neighborhood, just a s... <button className="font-semibold underline text-gray-900 dark:text-white hover:text-primary">Read more</button>
+                </p>
+              </div>
+            </section>
+
+            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow border border-gray-100 dark:border-gray-700">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white">Amenities</h2>
+                <button className="text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition">View all amenities <i className="fa-solid fa-chevron-right text-xs ml-1"></i></button>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 p-2">
+                  <span className="material-icons text-gray-400">tv</span> Cable TV
+                </div>
+                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 p-2">
+                  <span className="material-icons text-gray-400">wifi</span> Internet & Wireless
+                </div>
+                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 p-2">
+                  <span className="material-icons text-gray-400">kitchen</span> Kitchen
+                </div>
+                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 p-2">
+                  <span className="material-icons text-gray-400">local_laundry_service</span> Washing Machine
+                </div>
+                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 p-2">
+                  <span className="material-icons text-gray-400">dry</span> Hair Dryer
+                </div>
+                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 p-2">
+                  <span className="material-icons text-gray-400">work</span> Dedicated workspace
+                </div>
+              </div>
+            </section>
+
+            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow border border-gray-100 dark:border-gray-700">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                  Guest Reviews
+                  <span className="text-xs font-normal bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 px-2 py-0.5 rounded-full border border-green-200 dark:border-green-800">Curated Highlights</span>
+                </h2>
+                <div className="flex items-center gap-1 text-yellow-500">
+                  <i className="fa-solid fa-star"></i>
+                  <span className="text-lg font-bold text-gray-900 dark:text-white ml-1">4.92</span>
+                </div>
+              </div>
+              <div className="grid gap-6">
+                {reviews.filter(r => r.isPublished).length === 0 ? (
+                  <p className="text-gray-500 italic">No reviews available yet.</p>
+                ) : (
+                  reviews.filter(r => r.isPublished).map(review => (
+                    <div key={review.id} className="bg-alt-surface-light dark:bg-alt-surface-dark p-6 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm relative overflow-hidden">
+                      <div className="absolute top-0 right-0 p-4 opacity-10 text-primary dark:text-white">
+                        <span className="material-symbols-outlined text-[60px]">format_quote</span>
+                      </div>
+                      <div className="flex items-center mb-4 relative z-10">
+                        <img
+                          alt={review.guestName}
+                          className="w-12 h-12 rounded-full mr-4 border-2 border-white dark:border-gray-600 object-cover"
+                          src={review.guestImage}
+                        />
+                        <div>
+                          <h4 className="font-bold text-gray-900 dark:text-white">{review.guestName}</h4>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">{review.date}</div>
+                        </div>
+                        <div className="ml-auto flex text-yellow-400 text-xs gap-0.5">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <span
+                              key={star}
+                              className={`material-symbols-outlined text-[14px] ${star <= review.rating ? 'filled' : 'text-slate-300'}`}
+                              style={{ fontVariationSettings: "'FILL' 1" }}
+                            >
+                              {star <= review.rating ? 'star' : 'star'}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-gray-600 dark:text-gray-300 relative z-10 italic">
+                        "{review.comment}"
+                      </p>
+                    </div>
+                  ))
+                )}
+              </div>
+              <button className="mt-6 w-full py-2 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                Show all 128 reviews
+              </button>
+            </section>
+
+            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow border border-gray-100 dark:border-gray-700">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Stay Policies</h2>
+              <div className="bg-alt-surface-light dark:bg-alt-surface-dark p-6 rounded-lg mb-4">
+                <div className="flex items-start gap-3 mb-4">
+                  <i className="fa-regular fa-clock text-gray-900 dark:text-white mt-1"></i>
+                  <h3 className="font-semibold text-gray-900 dark:text-white">Check-in & Check-out</h3>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white dark:bg-card-dark p-3 rounded border border-gray-100 dark:border-gray-600">
+                    <span className="text-xs text-gray-500 dark:text-gray-400 block">Check-in Time</span>
+                    <span className="font-bold text-gray-900 dark:text-white">3:00 PM</span>
+                  </div>
+                  <div className="bg-white dark:bg-card-dark p-3 rounded border border-gray-100 dark:border-gray-600">
+                    <span className="text-xs text-gray-500 dark:text-gray-400 block">Check-out Time</span>
+                    <span className="font-bold text-gray-900 dark:text-white">10:00 AM</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-alt-surface-light dark:bg-alt-surface-dark p-6 rounded-lg mb-4">
+                <div className="flex items-start gap-3 mb-4">
+                  <i className="fa-solid fa-shield-halved text-gray-900 dark:text-white mt-1"></i>
+                  <h3 className="font-semibold text-gray-900 dark:text-white">House Rules</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-700 dark:text-gray-300">
+                  <div className="bg-white dark:bg-card-dark px-4 py-2 rounded border border-gray-100 dark:border-gray-600 flex items-center gap-2">
+                    <i className="fa-solid fa-ban text-red-400"></i> No smoking
+                  </div>
+                  <div className="bg-white dark:bg-card-dark px-4 py-2 rounded border border-gray-100 dark:border-gray-600 flex items-center gap-2">
+                    <i className="fa-solid fa-ban text-red-400"></i> No pets
+                  </div>
+                  <div className="bg-white dark:bg-card-dark px-4 py-2 rounded border border-gray-100 dark:border-gray-600 flex items-center gap-2">
+                    <i className="fa-solid fa-ban text-red-400"></i> No parties or events
+                  </div>
+                  <div className="bg-white dark:bg-card-dark px-4 py-2 rounded border border-gray-100 dark:border-gray-600 flex items-center gap-2">
+                    <i className="fa-solid fa-circle-check text-green-500"></i> Security deposit required
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-alt-surface-light dark:bg-alt-surface-dark p-6 rounded-lg">
+                <div className="flex items-start gap-3 mb-4">
+                  <i className="fa-regular fa-calendar-xmark text-gray-900 dark:text-white mt-1"></i>
+                  <h3 className="font-semibold text-gray-900 dark:text-white">Cancellation Policy</h3>
+                </div>
+                <div className="bg-white dark:bg-card-dark p-4 rounded border border-gray-100 dark:border-gray-600">
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">For stays less than 28 days</h4>
+                  <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                    <li>Full refund up to 14 days before check-in</li>
+                    <li>No refund for bookings less than 14 days before check-in</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section className="bg-white dark:bg-card-dark p-8 rounded-xl shadow border border-gray-100 dark:border-gray-700 pb-8">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Location</h2>
+              <div className="relative w-full h-80 rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 group">
+                <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')] opacity-20 bg-center bg-cover"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-primary text-white px-4 py-2 rounded-full shadow-lg transform group-hover:-translate-y-2 transition-transform duration-300 flex items-center gap-2">
+                    <i className="fa-solid fa-location-dot"></i> Morden, London
+                  </div>
+                </div>
+                <div className="absolute bottom-4 left-4 bg-white dark:bg-gray-800 p-2 rounded shadow text-xs">
+                  <img alt="Google" className="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVhqBceWfFtnje4luA6PK03EjnHR2SYaAVHA17n2zpmytId0Rl9gUvkqdsYQb4-LDl7ShpxYkH4tc1SFJ92XsdPpTdu1ICP_oTIBDof0kMoZUNpDPkODuciRWVwGH6Swfi1Lle1o4U4dnr_4JOpKHn-DOs7nDtfBUQtSw-k0eVwCkegoKOq4-gV6aoZXH4fb6dD93rNyn2egu73LdkP4I-zpPrXyMIQDRXnguFYa8DDvMKbQoZSy3QGqrqMJj5RSwFEaANVBJu-G8" />
+                </div>
+              </div>
+              <a className="inline-block mt-4 text-sm underline text-gray-600 dark:text-gray-400 hover:text-primary" href="#">Browse more short term flats in London</a>
+            </section>
+          </div>
+
+          <div className="lg:col-span-1 relative">
+            <div className="sticky top-24">
+              <div className="bg-white dark:bg-card-dark rounded-xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                <div className="bg-primary p-4 text-white">
+                  <h3 className="font-bold text-lg">Book Your Stay</h3>
+                  <p className="text-xs text-green-100 opacity-90">Select dates to see prices</p>
+                </div>
+                <div className="p-6 space-y-4">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="col-span-2 sm:col-span-1">
+                      <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Check-in</label>
+                      <div className="relative">
+                        <input className="w-full pl-9 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary" placeholder="Select dates" type="text" />
+                        <i className="fa-regular fa-calendar absolute left-3 top-2.5 text-gray-400"></i>
+                      </div>
+                    </div>
+                    <div className="col-span-2 sm:col-span-1">
+                      <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Guests</label>
+                      <div className="relative">
+                        <select className="w-full pl-9 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary appearance-none">
+                          <option>1 Guest</option>
+                          <option>2 Guests</option>
+                        </select>
+                        <i className="fa-solid fa-user absolute left-3 top-2.5 text-gray-400"></i>
+                        <i className="fa-solid fa-chevron-down absolute right-3 top-3 text-xs text-gray-400 pointer-events-none"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <button className="w-full bg-primary text-white font-semibold py-3 rounded-lg hover:bg-[#162e2c] transition shadow-lg shadow-primary/20">
+                    Check availability
+                  </button>
+                  <button className="w-full bg-white dark:bg-transparent border border-gray-300 dark:border-gray-500 text-gray-700 dark:text-gray-200 font-semibold py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition flex items-center justify-center gap-2">
+                    <i className="fa-regular fa-comment"></i> Send Inquiry
+                  </button>
+                  <div className="text-center pt-2">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 flex items-center justify-center gap-1">
+                      <i className="fa-solid fa-bolt text-yellow-500"></i> Instant booking confirmation
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6 flex justify-center gap-4 text-gray-400 dark:text-gray-500">
+                <i className="fa-brands fa-cc-visa text-2xl"></i>
+                <i className="fa-brands fa-cc-mastercard text-2xl"></i>
+                <i className="fa-brands fa-cc-amex text-2xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer className="bg-primary text-white pt-16 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <div className="lg:col-span-1">
+              <h3 className="font-display font-bold text-lg mb-4">Join The Flex</h3>
+              <p className="text-sm text-gray-300 mb-6 leading-relaxed">
+                Sign up now and stay up to date on our latest news and exclusive deals including 5% off your first stay!
+              </p>
+              <form className="space-y-3">
+                <div className="grid grid-cols-2 gap-2">
+                  <input className="w-full bg-[#2A4846] border-none rounded px-3 py-2 text-sm placeholder-gray-400 text-white focus:ring-1 focus:ring-white" placeholder="First name" type="text" />
+                  <input className="w-full bg-[#2A4846] border-none rounded px-3 py-2 text-sm placeholder-gray-400 text-white focus:ring-1 focus:ring-white" placeholder="Last name" type="text" />
+                </div>
+                <input className="w-full bg-[#2A4846] border-none rounded px-3 py-2 text-sm placeholder-gray-400 text-white focus:ring-1 focus:ring-white" placeholder="Email address" type="email" />
+                <div className="flex gap-2">
+                  <div className="w-1/3 bg-[#2A4846] rounded px-2 py-2 text-sm text-gray-300 flex items-center justify-between cursor-pointer">
+                    🇬🇧 +44
+                  </div>
+                  <input className="w-2/3 bg-[#2A4846] border-none rounded px-3 py-2 text-sm placeholder-gray-400 text-white focus:ring-1 focus:ring-white" placeholder="Phone number" type="tel" />
+                </div>
+                <button className="w-full bg-white text-primary font-bold py-2 rounded shadow hover:bg-gray-100 transition flex items-center justify-center gap-2">
+                  <i className="fa-solid fa-paper-plane text-xs"></i> Subscribe
+                </button>
+              </form>
+            </div>
+            <div>
+              <h3 className="font-display font-bold text-lg mb-4">The Flex</h3>
+              <p className="text-sm text-gray-300 mb-6 leading-relaxed">
+                Professional property management services for landlords, flexible corporate lets for businesses and quality accommodations for short-term and long-term guests.
+              </p>
+              <div className="flex gap-4">
+                <a className="text-white hover:text-gray-300 transition" href="#"><i className="fa-brands fa-facebook-f"></i></a>
+                <a className="text-white hover:text-gray-300 transition" href="#"><i className="fa-brands fa-instagram"></i></a>
+                <a className="text-white hover:text-gray-300 transition" href="#"><i className="fa-brands fa-linkedin-in"></i></a>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <h3 className="font-display font-bold text-lg mb-4">Quick Links</h3>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li><a className="hover:text-white" href="#">Blog</a></li>
+                  <li><a className="hover:text-white" href="#">Careers</a></li>
+                  <li><a className="hover:text-white" href="#">Terms & Conditions</a></li>
+                  <li><a className="hover:text-white" href="#">Privacy Policy</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-display font-bold text-lg mb-4">Locations</h3>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li><a className="hover:text-white uppercase tracking-wide text-xs" href="#">London</a></li>
+                  <li><a className="hover:text-white uppercase tracking-wide text-xs" href="#">Paris</a></li>
+                  <li><a className="hover:text-white uppercase tracking-wide text-xs" href="#">Algiers</a></li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-display font-bold text-lg mb-4">Contact Us</h3>
+              <div className="space-y-4 text-sm text-gray-300">
+                <div>
+                  <p className="font-bold text-white mb-1"><i className="fa-solid fa-headset mr-2"></i> Support Numbers</p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <img alt="UK" className="mt-1 w-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTHJxlInNT6IeN6oDwLI041X1CMflghX6zEWsrSO5MKPljF-MNt712FRYkXEsfWhB7Ro1oXSiRkq5-Pi35e9lN5j8v6jxJzZwZqJR1G6ivPtsJrhIB53BFbzN1CrDiPtmEHE4pJ1r3dF9lSNSE7-OwFHdAYE4FPSl9qGL35JigB16dHAbnsuJWpLYYv3jjIIgoGEXflMYwOq0YfRd0zuKJvuFyFK8x0pYnDeevomErCOcn-dNFaOfiERg6ptd4VR_YaHANKEtu0ck" />
+                  <div>
+                    <div className="text-xs text-gray-400">United Kingdom</div>
+                    <div className="font-mono">+44 77 2374 5646</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <img alt="Algeria" className="mt-1 w-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC-IG7zy-qmiUxMeJKZzmRXlD1wbCkT3GqtFfHEvAhEr3DUZy4wJAAKFOPgJPu9CN_x5fvmtRS3SHq9LmEO9K2Vn0B41p8SLQlWud0ryuY4wGAYbV2B_Q3-GJQDLPQIfaCSAK5TPjv0NZbYyiMEhsFz6YZmidEpVrLNO4NNboxeljKcZOTi_xWXeBPwt9XptBiLgltTPbC-v7I-kFt0DUnk0vVidJyiZWh2Yakqol6yNgcG4tGxbpeT_QHxUf5aazkv13QSviFMcc" />
+                  <div>
+                    <div className="text-xs text-gray-400">Algeria</div>
+                    <div className="font-mono">+33 7 57 59 22 41</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <img alt="France" className="mt-1 w-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuqpU9IIQ9KyGL41vaPy6rnzoaDkraCOhQqj5ekUzSDacLUvNvkwmOuQLZqIf_z9X_yE-bluDYROQ01ryQavoa797SGM-tVm-t0L4hJCNo5wf0xH8eXFi61N0HYcQB-XaCOHhgUNUhl_PwLCKGXqruIwPdF1zFqwVdMDwyIDNc4MYt-unvQ98o5Op8iZ3JiXIvWmtnyquBhgYAl2JfLWGT3A5Xj-ygYqqy62SdegwwH011ZJbOSg8RpRFenGNsuyoJ9yHVsPVDjfU" />
+                  <div>
+                    <div className="text-xs text-gray-400">France</div>
+                    <div className="font-mono">+33 6 44 64 57 17</div>
+                  </div>
+                </div>
+                <div className="pt-2 border-t border-[#2A4846]">
+                  <a className="flex items-center gap-2 hover:text-white" href="mailto:info@theflex.global">
+                    <i className="fa-regular fa-envelope"></i> info@theflex.global
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-[#2A4846] pt-8 text-center text-sm text-gray-400">
+            © 2025 The Flex. All rights reserved.
+          </div>
+        </div>
+      </footer>
+
+      <a className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center" href="#">
+        <i className="fa-brands fa-whatsapp text-3xl"></i>
+      </a>
+    </div>
+  );
+};
+
+export default PropertyDetails;
